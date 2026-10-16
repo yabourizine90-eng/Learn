@@ -1,5 +1,6 @@
 import { useState, } from "react";
 import Groupe from "./Groupe";
+import StudentCard from "./StudentCard";
 export default function Content(){
     const [etudiants, setEtudiants] = useState({ id: "", prenom: "", note: "",groupe:"" })
   
@@ -108,22 +109,15 @@ export default function Content(){
           <h2 className="text-3xl font-bold">
             Liste des étudiants
           </h2>
-
           <div className="mt-6 grid grid-cols-3 gap-5">
             {etudiant.map((item)=>{
               const color = item.note < 10 ? "bg-red-400" : "bg-white";
               return(
-                <div className={`rounded-xl ${color} p-5 shadow hover:bg-blue-400`} onClick={() => remplir(item)} key={item.id}> 
-                    <h3 className="text-lg font-bold">
-                      {item.prenom}
-                    </h3>
-                    <p className="mt-2 text-slate-500">
-                      Note : {item.note} / 20
-                    </p>
-                </div>
+                <StudentCard item={item} color={color} onRemplir={remplir} />
               )
             })}
           </div>
+          
         </main>
     )
 }
