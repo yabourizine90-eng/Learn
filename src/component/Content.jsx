@@ -2,14 +2,14 @@ import { useState, } from "react";
 import Groupe from "./Groupe";
 import StudentCard from "./StudentCard";
 export default function Content(){
-    const [etudiants, setEtudiants] = useState({ id: "", prenom: "", note: "",groupe:"" })
+    const [etudiants, setEtudiants] = useState({ id: "", prenom: "", note: ""})
   
   const [etudiant, setEtudiant] = useState([
     {id:1, prenom:"Yassin", note:"14" },
     {id:2, prenom:"Youssef", note:"16" },
     {id:3, prenom:"Ghita", note:"18" },
     {id:4, prenom:"Amin", note:"20" },
-    {id:5, prenom:"Mohamed", note:"12" },
+    {id:5, prenom:"Mohamed", note:"9" },
     {id:6, prenom:"Sara", note:"19" }
   ])
 
@@ -111,7 +111,7 @@ export default function Content(){
           </h2>
           <div className="mt-6 grid grid-cols-3 gap-5">
             {etudiant.map((item)=>{
-              const color = item.note < 10 ? "bg-red-400" : "bg-white";
+              const color = item.note < 10 ? "bg-red-200" : "bg-white";
               return(
                 <StudentCard item={item} color={color} onRemplir={remplir} />
               )
