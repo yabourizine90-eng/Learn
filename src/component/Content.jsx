@@ -2,8 +2,8 @@ import { useState, } from "react";
 import Groupe from "./Groupe";
 import StudentCard from "./StudentCard";
 export default function Content(){
-    const [etudiants, setEtudiants] = useState({ id: "", prenom: "", note: ""})
-  
+  const [etudiants, setEtudiants] = useState({ id: "", prenom: "", note: ""})
+  const [afficher,setAfficher]=useState(false)
   const [etudiant, setEtudiant] = useState([
     {id:1, prenom:"Yassin", note:"14" },
     {id:2, prenom:"Youssef", note:"16" },
@@ -48,6 +48,9 @@ export default function Content(){
       setEtudiant(newEtudiants)
     }
   }
+  function show(){
+    setAfficher(!afficher)
+  }
     
     return(
         <main className="flex-1 p-8">
@@ -76,8 +79,6 @@ export default function Content(){
                 placeholder="Saisir ID" 
                 className="w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-400 m-3" 
               />
-
-              <Groupe />
               
               <button onClick={ajouter} 
                 type="button" className="px-4 py-2 text-sm 
@@ -87,6 +88,7 @@ export default function Content(){
                 m-3">
                 ajouter
               </button>
+              
               
               <button onClick={modifier} 
                 type="button" className="px-4 py-2 text-sm 
@@ -105,6 +107,15 @@ export default function Content(){
                 m-3">
                 supprimer
               </button>
+              <hr />
+              <button onClick={show}
+              className="w-full px-4 py-2 text-sm 
+                font-medium text-white bg-blue-600 rounded-lg 
+                hover:bg-blue-700 focus:outline-none focus:ring-2 
+                focus:ring-blue-500 focus:ring-offset-2 transition-colors 
+                m-3"
+              >{afficher == true ? "masquer" :"afficher"}</button>
+                    {afficher == true && <Groupe />}
             </div>
           <h2 className="text-3xl font-bold">
             Liste des étudiants
@@ -113,7 +124,7 @@ export default function Content(){
             {etudiant.map((item)=>{
               const color = item.note < 10 ? "bg-red-200" : "bg-white";
               return(
-                <StudentCard item={item} color={color} onRemplir={remplir} />
+                <StudentCard key={item.id} item={item} color={color} onRemplir={remplir} />
               )
             })}
           </div>
