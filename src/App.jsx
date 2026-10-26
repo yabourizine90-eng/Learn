@@ -1,23 +1,27 @@
-import { useState } from "react"
-import Header from "./component/Header"
-import Sidebar from "./component/Sidebar"
-import Content from "./component/Content"
-import Groupe from "./component/Groupe"
-import "./App.css"
+import Header from "./component/Header";
+import Sidebar from "./component/Sidebar";
+import Content from "./component/Content";
+import Etudiants from "./component/Etudiants";
+import Notes from "./component/Notes";
 
+import { Route, Routes } from "react-router";
+import "./App.css";
 
-
-export default function App(){
-  
-
-  
-  return(
+export default function App() {
+  return (
     <div>
       <Header />
       <div className="flex">
         <Sidebar />
-        <Content />
+
+        <Routes>
+          <Route path="/" element={<Content />} />
+          <Route path="/accueil" element={<Content />} />
+          <Route path="/etudiants" element={<Etudiants />} />
+          <Route path="/notes" element={<Notes />} />
+          <Route />
+        </Routes>
       </div>
     </div>
-  )
+  );
 }

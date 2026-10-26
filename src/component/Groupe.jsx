@@ -17,7 +17,7 @@ export default function Groupe(){
         {id:3,libelle:"DD203"},
         {id:4,libelle:"DD204"}
     ];
-
+    
     const [selectedGr,setSelectedGr]=useState(groupes[0].libelle);
     const [filteredSt,setFilteredSt]=useState([])
     const [secondes,setSecondes]=useState(0)
@@ -60,10 +60,10 @@ export default function Groupe(){
                 })}
             </select>
             {secondes}
-            <ul className="w-full px-4 py-2 text-gray-700 bg-white 
+            <ul className="w-full px-4 py-2 text-gray-700 bg-white
                 border border-gray-300 rounded-lg focus:outline-none 
                 focus:ring-2 focus:ring-blue-500 focus:border-transparent 
-                m-3" 
+                m-3"
             >{filteredSt.map((item , i)=>{
                 return <li key={i}>{item.prenom}</li>
             })}</ul>
