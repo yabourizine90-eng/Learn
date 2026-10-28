@@ -1,3 +1,4 @@
+
 export default function Etudiants() {
   const etudiants = [
     { id: 1, prenom: "Yassin", note: "14" },
@@ -7,6 +8,8 @@ export default function Etudiants() {
     { id: 5, prenom: "Mohamed", note: "9" },
     { id: 6, prenom: "Sara", note: "19" },
   ];
+  
+  
 
   return (
     <div className="p-8 space-y-8 bg-gray-50 min-h-screen w-screen">
